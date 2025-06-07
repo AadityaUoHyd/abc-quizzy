@@ -53,6 +53,7 @@ export default function App() {
           <Suspense fallback={<div className="text-center py-20">Loading...</div>}>
             <Routes>
               <Route path="/" element={<LandingPage />} />
+              
               <Route path="/sign-in" element={<Login />} />
               <Route path="/sign-up" element={<Register />} />
               <Route path="/verify" element={<Verify />} />

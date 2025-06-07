@@ -1,4 +1,4 @@
-# abc-quizzy-backend
+# abc-quizzy
 ABC Quizzy is a web application for generating and solving quizzes. It features user authentication, challenge creation, and history tracking. The project is transitioning from Clerk to a custom authentication system using FastAPI, SQLAlchemy, and PostgreSQL (Neon DB). The frontend uses React with Flowbite for UI and React Toastify for notifications.
 
 - To run backend(windows os) => go to backend root folder, and create virtual environment first.
@@ -9,6 +9,13 @@ uv venv
 uv sync
 uv run uvicorn src.app:app --reload
 
+```
+- To run frontend(windows os) =>
+
+```
+npm i
+npm run build
+npm run dev
 ```
 
 ## FLOW OF PROJECT
@@ -117,7 +124,8 @@ npm install
 VITE_BACKEND_URL=http://localhost:8000
 VITE_GOOGLE_CLIENT_ID=your-google-client-id
 
-- Start frontend:
+- Start frontend post build:
+npm run build
 npm run dev
 Database Schema
 

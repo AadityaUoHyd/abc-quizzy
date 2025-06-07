@@ -100,14 +100,16 @@ const LandingPage = () => {
           <p className="text-lg sm:text-2xl mb-8 text-gray-100 animate-fade-in delay-100">
             Play, Think and Learn with Interactive Quizzes!
           </p>
-          <Button
-            size="xl"
-            gradientMonochrome="info"
-            href="/sign-up"
-            className="transform hover:scale-105 transition-transform animate-fade-in delay-200"
-          >
-            Get Started Now
-          </Button>
+          <div className="transform hover:scale-105 transition-transform">
+              <Button
+                size="xl"
+                gradientMonochrome="info"
+                href="/sign-up"
+                className="animate-fade-in delay-200"
+              >
+                Get Started Now
+              </Button>
+            </div>
         </div>
       </section>
 
@@ -222,11 +224,11 @@ const LandingPage = () => {
           </p>
           <Button
             size="xl"
-            gradientMonochrome="info"
-            href="/sign-up"
-            className="transform hover:scale-105 transition-transform"
+            gradientDuoTone="cyanToBlue"
+            href="/register"
+            className="transform hover:scale-105 transition-transform w-1/2 mx-auto"
           >
-            Sign Up Now
+            Register Now
           </Button>
         </div>
       </section>
