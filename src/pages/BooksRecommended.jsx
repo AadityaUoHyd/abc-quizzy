@@ -1,0 +1,106 @@
+// src/pages/BooksRecommended.jsx
+import React, { useContext } from 'react';
+import { ThemeContext } from '../App.jsx';
+import { Card, Button } from 'flowbite-react';
+import { FaBookOpen, FaDownload, FaExternalLinkAlt } from 'react-icons/fa';
+
+const recommendedBooks = [
+  {
+    title: "Think Like a Programmer: An Introduction to Creative Problem Solving",
+    author: "V. Anton Spraul",
+    description: "A great book for understanding the core thought processes behind programming, applicable across languages. Focuses on problem-solving techniques.",
+    link: "https://freecomputerbooks.com/Think-Like-A-Programmer-An-Introduction-To-Creative-Problem-Solving.html", // Link to resource about the book
+    image: "https://m.media-amazon.com/images/I/41C89M51s-L._SL1500_.jpg", // Placeholder image, replace with actual if available
+  },
+  {
+    title: "The Constitution of India",
+    author: "Government of India",
+    description: "The supreme law of India. Essential for understanding Indian Polity. Available officially from various government sources.",
+    link: "https://legislative.gov.in/sites/default/files/COI.pdf", // Example: Official PDF link
+    image: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Constitution_of_India_English.jpg",
+  },
+  {
+    title: "Principles of Economics",
+    author: "Alfred Marshall",
+    description: "A foundational text in classical economics, widely available in the public domain.",
+    link: "https://www.gutenberg.org/ebooks/15461", // Project Gutenberg link
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Principles_of_Economics_by_Alfred_Marshall_%281890%29.jpg/330px-Principles_of_Economics_by_Alfred_Marshall_%281890%29.jpg",
+  },
+  {
+    title: "A Brief History of Time",
+    author: "Stephen Hawking",
+    description: "An accessible exploration of cosmology, black holes, and the origins of the universe.",
+    // Note: This book is NOT free. This is an example of what *not* to link directly.
+    // I'll provide a placeholder for the link to illustrate the structure.
+    link: "https://www.amazon.com/Brief-History-Time-Stephen-Hawking/dp/0553380168", // Link to buy, not free PDF
+    image: "https://upload.wikimedia.org/wikipedia/en/a/a2/A_Brief_History_of_Time.jpg",
+  },
+  {
+    title: "The Art of War",
+    author: "Sun Tzu",
+    description: "An ancient Chinese military treatise that has influenced Western and Eastern military planning, business tactics, and beyond. Public domain.",
+    link: "https://www.gutenberg.org/ebooks/132", // Project Gutenberg link
+    image: "https://upload.wikimedia.org/wikipedia/commons/a/ab/The_Art_of_War_%28cover%29.jpg",
+  },
+  {
+    title: "OpenStax Chemistry 2e",
+    author: "OpenStax",
+    description: "A free, peer-reviewed, and openly licensed introductory chemistry textbook.",
+    link: "https://openstax.org/details/books/chemistry-2e", // Official OpenStax link
+    image: "https://openstax.org/imgs/subjects/chemistry-2e-lg.jpg",
+  },
+  // Add more books following the pattern. Ensure `link` is to a legal source.
+];
+
+export default function BooksRecommended() {
+  const { darkMode } = useContext(ThemeContext);
+
+  return (
+    <div className={`min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'} py-12 px-4 sm:px-6 lg:px-8`}>
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight flex items-center justify-center gap-3">
+            <FaBookOpen className="text-blue-600" />
+            Books Recommended
+          </h1>
+          <p className={`mt-4 text-lg sm:text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
+            Enhance your knowledge with these recommended books and resources for quiz preparation.
+            <br />
+            <em className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+                (Links provided are to legal sources for free access or purchase information. Please verify terms of use.)
+            </em>
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {recommendedBooks.map((book, index) => (
+            <Card key={index} className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white'} shadow-lg`}>
+              <img src={book.image} alt={book.title} className="w-full h-48 object-cover rounded-t-lg mb-4" onError={(e) => { e.target.onerror = null; e.target.src="https://via.placeholder.com/400x200?text=No+Image" }}/>
+              <h3 className={`text-xl font-semibold ${darkMode ? 'text-white' : 'text-gray-900'} mb-2`}>
+                {book.title}
+              </h3>
+              <p className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-3`}>
+                <strong>Author:</strong> {book.author}
+              </p>
+              <p className={`text-base ${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-4 flex-grow`}>
+                {book.description}
+              </p>
+              {book.link && (
+                <Button
+                  href={book.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="blue"
+                  className="w-full text-white bg-blue-600 hover:bg-blue-700 mt-auto flex items-center justify-center gap-2"
+                >
+                  <FaExternalLinkAlt />
+                  View/Download
+                </Button>
+              )}
+            </Card>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
