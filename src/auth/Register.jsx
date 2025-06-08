@@ -20,7 +20,8 @@ export default function Register() {
 
   const validateMobile = (number) =>  /^\d{10}$/.test(number);
 
-  const validatePassword = (pwd) =>  /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(pwd);
+  const validatePassword = (pwd) =>  /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/.test(pwd);
+
 
   const handleRegister = async (e) => {
     e.preventDefault();

@@ -5,7 +5,7 @@ import { FaBookOpen, FaExternalLinkAlt } from 'react-icons/fa';
 
 const recommendedBooks = [
   {
-    title: "Think Like a Programmer: An Introduction to Creative Problem Solving",
+    title: "Think Like a Programmer",
     author: "V. Anton Spraul",
     description: "A great book for understanding the core thought processes behind programming.",
     link: "https://freecomputerbooks.com/Think-Like-A-Programmer-An-Introduction-To-Creative-Problem-Solving.html",
@@ -48,19 +48,18 @@ const recommendedBooks = [
   },
 ];
 
-
 export default function BooksRecommended() {
   const { darkMode } = useContext(ThemeContext);
 
   return (
-    <div className={`min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'} py-12 px-4 sm:px-6 lg:px-8`}>
+    <div className={`min-h-screen py-12 px-4 sm:px-6 lg:px-8 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'}`}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight flex items-center justify-center gap-3">
             <FaBookOpen className="text-blue-600" />
             Books Recommended
           </h1>
-          <p className={`mt-4 text-lg sm:text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
+          <p className={`mt-4 text-lg sm:text-xl max-w-3xl mx-auto ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
             Enhance your knowledge with these recommended books and resources for quiz preparation.
             <br />
             <em className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
@@ -69,39 +68,44 @@ export default function BooksRecommended() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {recommendedBooks.map((book, index) => (
-            <Card key={index} className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white'} shadow-lg`}>
+            <Card
+              key={index}
+              className={`transition-all duration-300 ease-in-out transform hover:scale-[1.02] rounded-xl overflow-hidden shadow-md ${darkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}
+            >
               <img
                 src={book.image}
                 alt={book.title}
-                className="w-full h-48 object-cover rounded-t-lg mb-4"
+                className="w-full h-48 object-cover"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = "https://placehold.co/400x200?text=No+Image";
                 }}
               />
-              <h3 className={`text-xl font-semibold ${darkMode ? 'text-white' : 'text-gray-900'} mb-2`}>
-                {book.title}
-              </h3>
-              <p className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-3`}>
-                <strong>Author:</strong> {book.author}
-              </p>
-              <p className={`text-base ${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
-                {book.description}
-              </p>
-              {book.link && (
-                <Button
-                  href={book.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  color="blue"
-                  className="w-full text-white bg-blue-600 hover:bg-blue-700 flex items-center justify-center gap-2"
-                >
-                  <FaExternalLinkAlt />
-                  View/Download
-                </Button>
-              )}
+              <div className="p-5 flex flex-col justify-between h-full">
+                <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  {book.title}
+                </h3>
+                <p className={`text-sm mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                  <strong>Author:</strong> {book.author}
+                </p>
+                <p className={`text-base mb-4 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                  {book.description}
+                </p>
+                {book.link && (
+                  <Button
+                    href={book.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    color="blue"
+                    className="w-full text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center gap-2"
+                  >
+                    <FaExternalLinkAlt />
+                    View/Download
+                  </Button>
+                )}
+              </div>
             </Card>
           ))}
         </div>
