@@ -71,6 +71,16 @@ export function ChallengeGenerator() {
         fetchQuota();
     }, []);
 
+    useEffect(() => {
+    if (quota.quota_remaining === 0) {
+        toast.info("You've used all your quizzes for today. Come back after reset!", {
+            position: "top-center",
+            autoClose: 5000,
+        });
+    }
+}, [quota.quota_remaining]);
+
+
     const fetchQuota = async () => {
         try {
             const data = await makeRequest("quota");
@@ -132,7 +142,7 @@ export function ChallengeGenerator() {
                     challenge_id: challenge.id,
                     points,
                     total_challenges: newTotalChallenges,
-                    achieved_confetti,
+                    achieved_confetti: achievedConfetti,
                     user_answer_id: challenge.user_answer_id
                 })
             });
@@ -229,7 +239,7 @@ export function ChallengeGenerator() {
 
                             <button
                                 onClick={debouncedGenerateChallenge}
-                                disabled={isLoading || quota.quota_remaining === 0}
+                                disabled={isLoading || quota.quota_remaining === 0 || challenge}
                                 className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition disabled:opacity-50 w-full"
                             >
                                 {isLoading ? "Creating..." : `Create ${cat} Quizzy`}
@@ -241,7 +251,10 @@ export function ChallengeGenerator() {
 
             {isLoading && <Loader message={`Creating your ${category} quizzy...`} />}
             {error && <p className="text-red-500 text-center">{error}</p>}
-            {challenge && <MCQChallenge challenge={challenge} onAnswer={handleAnswer} totalChallengesPlayed={totalChallengesPlayed} />}
+            {challenge && <MCQChallenge challenge={challenge} onAnswer={handleAnswer} 
+                totalChallengesPlayed={totalChallengesPlayed} 
+                userCurrentScore={quota.score} />
+            }
         </div>
     );
 }
