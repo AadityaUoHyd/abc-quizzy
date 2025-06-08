@@ -239,7 +239,7 @@ export function ChallengeGenerator() {
 
                             <button
                                 onClick={debouncedGenerateChallenge}
-                                disabled={isLoading || quota.quota_remaining === 0 || challenge}
+                                disabled={isLoading || quota.quota_remaining === 0 }
                                 className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition disabled:opacity-50 w-full"
                             >
                                 {isLoading ? "Creating..." : `Create ${cat} Quizzy`}
