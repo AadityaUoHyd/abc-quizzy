@@ -72,6 +72,7 @@ export default function Login() {
     },
     flow: 'auth-code',
     redirect_uri: `${import.meta.env.VITE_FRONTEND_URL}/sign-in`,
+    scope: 'openid email profile',
   });
 
   return (
