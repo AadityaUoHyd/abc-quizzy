@@ -121,6 +121,7 @@ export default function Login() {
               Sign In
           </Button>
         </form>
+        {/*
         <div className="mt-6 text-center">
           <Button
             onClick={() => googleLogin()}
@@ -132,6 +133,7 @@ export default function Login() {
             Sign in with Google
           </Button>
         </div>
+          */}
         <p className="mt-4 text-center text-gray-600 dark:text-gray-400">
           Don't have an account?{' '}
           <Link to="/sign-up" className="text-blue-600 hover:underline dark:text-blue-400">
