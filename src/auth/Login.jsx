@@ -40,38 +40,39 @@ export default function Login() {
   };
 
   const googleLogin = useGoogleLogin({
-  onSuccess: async (tokenResponse) => {
-    try {
-      const res = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/auth/google`,
-        { code: tokenResponse.code }
-      );
-      localStorage.setItem('auth_token', res.data.token);
-      localStorage.setItem('user_id', res.data.user_id);
-      toast.success('Google login successful!', {
+    onSuccess: async (tokenResponse) => {
+      try {
+        const res = await axios.post(
+          `${import.meta.env.VITE_BACKEND_URL}/api/auth/google`,
+          { code: tokenResponse.code }
+        );
+        localStorage.setItem('auth_token', res.data.token);
+        localStorage.setItem('user_id', res.data.user_id);
+        toast.success('Google login successful!', {
+          position: 'top-right',
+          autoClose: 3000,
+        });
+        navigate('/quizzy');
+      } catch (err) {
+        const errorMessage = err.response?.data?.detail || 'Google login failed';
+        setError(errorMessage);
+        toast.error(errorMessage, {
+          position: 'top-right',
+          autoClose: 3000,
+        });
+      }
+    },
+    onError: (errorResponse) => {
+      setError('Google login failed');
+      toast.error('Google login failed', {
         position: 'top-right',
         autoClose: 3000,
       });
-      navigate('/quizzy');
-    } catch (err) {
-      const errorMessage = err.response?.data?.detail || 'Google login failed';
-      toast.error(errorMessage, {
-        position: 'top-right',
-        autoClose: 3000,
-      });
-    }
-  },
-  onError: () => {
-    toast.error('Google login failed', {
-      position: 'top-right',
-      autoClose: 3000,
-    });
-  },
-  flow: 'auth-code',
-  redirect_uri: `${import.meta.env.VITE_FRONTEND_URL}/sign-in`,
-  scope: 'openid email profile',
-});
-
+      console.error('Google login error:', errorResponse);
+    },
+    flow: 'auth-code',
+    redirect_uri: `${import.meta.env.VITE_FRONTEND_URL}/sign-in`,
+  });
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-300 p-4"
