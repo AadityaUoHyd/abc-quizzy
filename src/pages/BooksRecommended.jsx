@@ -7,46 +7,47 @@ const recommendedBooks = [
   {
     title: "Think Like a Programmer: An Introduction to Creative Problem Solving",
     author: "V. Anton Spraul",
-    description: "A great book for understanding the core thought processes behind programming, applicable across languages. Focuses on problem-solving techniques.",
+    description: "A great book for understanding the core thought processes behind programming.",
     link: "https://freecomputerbooks.com/Think-Like-A-Programmer-An-Introduction-To-Creative-Problem-Solving.html",
-    image: "https://cdn.pixabay.com/photo/2016/11/29/07/22/bible-1868070_1280.jpg://m.media-amazon.com/images/I/41C89M51s-L._SL1500_.jpg",
+    image: "https://m.media-amazon.com/images/I/41C89M51s-L._SL1500_.jpg",
   },
   {
     title: "The Constitution of India",
     author: "Government of India",
     description: "The supreme law of India. Essential for understanding Indian Polity.",
     link: "https://legislative.gov.in/sites/default/files/COI.pdf",
-    image: "https://cdn.pixabay.com/photo/2016/11/18/16/56/book-1835799_1280.jpg://upload.wikimedia.org/wikipedia/commons/e/ea/Constitution_of_India_English.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Constitution_of_India_English.jpg",
   },
   {
     title: "Principles of Economics",
     author: "Alfred Marshall",
-    description: "A foundational text in classical economics, widely available in the public domain.",
+    description: "A foundational text in classical economics.",
     link: "https://www.gutenberg.org/ebooks/15461",
-    image: "https://cdn.pixabay.com/photo/2015/06/02/12/59/book-794978_1280.jpg://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Principles_of_Economics_by_Alfred_Marshall_%281890%29.jpg/330px-Principles_of_Economics_by_Alfred_Marshall_%281890%29.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Principles_of_Economics_by_Alfred_Marshall_%281890%29.jpg",
   },
   {
     title: "A Brief History of Time",
     author: "Stephen Hawking",
-    description: "An accessible exploration of cosmology, black holes, and the origins of the universe.",
+    description: "An accessible exploration of cosmology and black holes.",
     link: "https://www.amazon.com/Brief-History-Time-Stephen-Hawking/dp/0553380168",
-    image: "https://cdn.pixabay.com/photo/2018/07/10/10/29/girl-3528292_1280.jpg://upload.wikimedia.org/wikipedia/en/a/a2/A_Brief_History_of_Time.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/en/a/a2/A_Brief_History_of_Time.jpg",
   },
   {
     title: "The Art of War",
     author: "Sun Tzu",
-    description: "An ancient Chinese military treatise influencing military and business strategy. Public domain.",
+    description: "Ancient Chinese military treatise, public domain.",
     link: "https://www.gutenberg.org/ebooks/132",
-    image: "https://cdn.pixabay.com/photo/2017/10/11/10/18/books-2840585_1280.jpg://upload.wikimedia.org/wikipedia/commons/a/ab/The_Art_of_War_%28cover%29.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/a/ab/The_Art_of_War_%28cover%29.jpg",
   },
   {
     title: "OpenStax Chemistry 2e",
     author: "OpenStax",
-    description: "A free, peer-reviewed, openly licensed introductory chemistry textbook.",
+    description: "Free, peer-reviewed chemistry textbook.",
     link: "https://openstax.org/details/books/chemistry-2e",
-    image: "https://openstax.org/imgs/subjects/chemistry-2e-lg.jpghttps://cdn.pixabay.com/photo/2019/12/15/01/48/book-4696184_1280.jpg",
+    image: "https://openstax.org/imgs/subjects/chemistry-2e-lg.jpg",
   },
 ];
+
 
 export default function BooksRecommended() {
   const { darkMode } = useContext(ThemeContext);
