@@ -4,6 +4,7 @@ import { useNavigate, useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
 import { Label, TextInput, Button } from 'flowbite-react';
 import logo from '../assets/logo.png';
+import dp from '../assets/dp.png';
 import { toast } from 'react-toastify';
 
 export default function ResetPassword() {
@@ -49,7 +50,11 @@ export default function ResetPassword() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-300 p-4">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4"
+        style={{
+            backgroundImage: `url(${dp})`,
+          }}
+        >
       <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl w-full max-w-md text-center transition-colors duration-300">
         <Link to="/">
             <img src={logo} alt="Logo" className="mx-auto mb-6 cursor-pointer" style={{ width: '150px' }}/>

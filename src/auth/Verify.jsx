@@ -7,8 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Button } from 'flowbite-react';
 import dp from '../assets/dp.png';
-// Make sure you have this import for the logo if you're using it in the component
-// import logo from '../assets/logo.png'; // Uncomment or add if you use it directly
+import logo from '../assets/logo.png';
 
 export default function Verify() {
   const navigate = useNavigate();
@@ -80,8 +79,9 @@ export default function Verify() {
       }}
     >
       <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-md text-center">
-        {/* Ensure the path to your logo is correct. If it's in public folder, use /logo.png */}
-        <img src="/src/assets/logo.png" alt="Logo" className="mx-auto mb-4" style={{ width: '150px' }} />
+        <Link to="/">
+          <img src={logo} alt="Logo" className="mx-auto mb-6 cursor-pointer" style={{ width: '150px' }}/>
+        </Link>
         <h2 className="text-3xl font-bold text-gray-800 mb-4">Email Verification</h2>
         {verifying ? (
           <p className="text-gray-600">Verifying your email...</p>
