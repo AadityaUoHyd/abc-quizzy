@@ -171,6 +171,9 @@ export function ChallengeGenerator() {
         if (!quota.last_reset_date) return null;
         const resetDate = new Date(quota.last_reset_date);
         resetDate.setHours(resetDate.getHours() + 24);
+        // Add 5 hours 30 minutes for IST
+        resetDate.setHours(resetDate.getHours() + 5);
+        resetDate.setMinutes(resetDate.getMinutes() + 30);
         return resetDate;
     };
 
