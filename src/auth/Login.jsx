@@ -78,6 +78,7 @@ export default function Login() {
     <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-300 p-4"
         style={{
             backgroundImage: `url(${dp})`,
+            objectFit: 'cover',
         }}
       >
       <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl w-full max-w-md text-center transition-colors duration-300">
