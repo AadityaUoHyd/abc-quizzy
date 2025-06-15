@@ -1,6 +1,9 @@
 # abc-quizzy
 ABC Quizzy is a web application for generating and solving quizzes. It features user authentication, challenge creation, and history tracking. The project is transitioning from Clerk to a custom authentication system using FastAPI, SQLAlchemy, and PostgreSQL (Neon DB). The frontend uses React with Flowbite for UI and React Toastify for notifications.
 
+![](https://raw.githubusercontent.com/AadityaUoHyd/abc-quizzy/refs/heads/main/abc-quizzy-screenshot.png)
+
+
 - To run backend(windows os) => go to backend root folder, and create virtual environment first.
 
 ```
